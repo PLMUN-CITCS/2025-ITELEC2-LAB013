@@ -1,7 +1,7 @@
-# 2025-ITELEC2-LAB012
-Week 04 - Conditional Statements
+# 2025-ITELEC2-LAB013
+Week 05 - Looping Statements
 
-Laboratory # 12 - Guided Coding Exercise: Simulating a Switch Statement and Ternary Operator in Python
+Laboratory # 13 - Guided Coding Exercise: for Loop with break and continue
 
 ## **Instructions**
 
@@ -77,110 +77,80 @@ Only perform this if this is the first time you will setup your Git Environment
 
 ### **Step 3: Complete the Assignment**
 
-**Laboratory # 12 - Guided Coding Exercise: Simulating a Switch Statement and Ternary Operator in Python**
+**Laboratory # 13 - Guided Coding Exercise: for Loop with break and continue**
 
    **Objective:**
-   - Understand how to simulate a switch statement in Python using a dictionary.
-   - Learn how to use the ternary operator for inline conditional expressions.
-   - Practice dictionary lookups and handling default values.
-   - Reinforce input handling and string manipulation.
+   - Understand what a loop is and its advantages (automating repetitive tasks).
+   - Learn how to iterate over a sequence using a for loop.
+   - Use the break statement to exit a loop early.
+   - Use the continue statement to skip certain iterations.
 
-   **Desired Output (Example 1):**
+   **Desired Output:**
    ```bash
-   Enter a day of the week: Monday
-   Today is Monday.
-   It's a Weekday!
+   1
+   2
+   4
+   5
+   6
    ```
-   **Desired Output (Example 2):**
-   ```bash
-   Enter a day of the week: saturday
-   Today is Saturday.
-   It's a Weekend!
-   ```
-   **Desired Output (Example 3):**
-   ```bash
-   Enter a day of the week:  tuesday 
-   Today is Tuesday.
-   It's a Weekday!
-   ```
-   **Desired Output (Example 4):**
-   ```bash
-   Enter a day of the week:  Funday
-   Invalid day entered.
-   It's a Weekday!
-   ```
-      
+
    **Notable Observations (to be discussed after completing the exercise):**
-   - Python does not have a built-in switch statement like some other languages. Dictionaries provide a clean and efficient way to achieve similar functionality.
-   - The .get() method of a dictionary allows you to retrieve a value associated with a key. Crucially, it also lets you specify a default value that will be returned if the key is not found in the dictionary. This is very useful for handling cases where the user might enter invalid input.
-   - The ternary operator (value_if_true if condition else value_if_false) provides a concise way to write conditional expressions in a single line. It's useful for simple conditions where you want to assign one of two values.
-   - String methods like .strip() and .lower() are essential for normalizing user input, making your code more robust.
+   - The continue statement skips only the current iteration of the loop. The loop continues with the next item.
+   - The break statement terminates the entire loop. No further iterations are performed.
+   - The placement of the if statements and the print() statement within the loop is crucial to achieving the desired behavior.
 
    **Python Best Practices**
-   - Input Normalization: Always normalize user input (e.g., convert to lowercase using .lower() and remove leading/trailing whitespace using .strip()) to handle variations in user input and prevent unexpected behavior.
-   - Dictionary .get() with Default: Use the .get() method with a default value when retrieving values from a dictionary. This is a best practice, especially when dealing with user input, as it provides a clean way to handle cases where the key might not exist.
-   - Readability: Even with concise constructs like the ternary operator, prioritize code readability. If a ternary expression becomes too complex, consider using a regular if...else statement for clarity.
-   - Descriptive Variable Names: Use meaningful variable names (e.g., day_messages, day, message, day_type).
-   - Comments: Add comments to explain your logic, especially when simulating control flow structures like a switch statement.
-   - Test Thoroughly: Test your code with various inputs, including valid days of the week (with different capitalization and spacing) and invalid days, to ensure it handles all cases correctly.
+   - Descriptive Variable Names: Use meaningful variable names (e.g., numbers instead of nums, num instead of n).
+   - Inline Comments: Use comments to clarify the purpose of break and continue, especially in more complex loops.
+   - Proper Indentation: Consistent indentation is essential for Python code to work correctly. Make sure the code inside the loop and the if statements is properly indented.
+   - Loop Logic: Carefully consider the logic of your loop, including where you place your if statements, continue, break, and print statements to ensure the loop behaves as intended.
+   - Test Thoroughly: Test your code with different ranges and conditions to ensure it works correctly in various scenarios.
 
    **Step-by-Step Instructions:**
 
    1. Setting up: Open your preferred Python environment or Text Editor, and create a Python Script.
-      - Required Filename: `switch_ternary_operator.py`
+      - Required Filename: `for_loop_break_continue.py`
       
-   2.  Create a dictionary to simulate a switch statement:
-      - Create a dictionary named day_messages. The keys of the dictionary should be the days of the week (in lowercase). The values should be the corresponding messages (e.g., "Today is Monday.", "Today is Tuesday.", etc.).
+   2.  Define a list of numbers from 1 to 10:
+      - Use the range() function and the list() constructor to create a list of numbers from 1 to 10 (inclusive). Store it in a variable named numbers.
 ```python
-day_messages = {
-    "monday": "Today is Monday.",
-    "tuesday": "Today is Tuesday.",
-    "wednesday": "Today is Wednesday.",
-    "thursday": "Today is Thursday.",
-    "friday": "Today is Friday.",
-    "saturday": "Today is Saturday.",
-    "sunday": "Today is Sunday."
-}
+numbers = list(range(1, 11))
 ```
       
-   3.  Get input from the user and normalize it:
-      - Use the input() function to prompt the user to enter a day of the week.
-      - Use .strip() to remove any leading or trailing whitespace from the user's input.
-      - Use .lower() to convert the input to lowercase. This makes the comparison case-insensitive.
-      - Store the normalized input in a variable named day.
+   3.  Iterate over each number using a for loop:
+      - Use a for loop to iterate through each num in the numbers list.
 ```python
-day = input("Enter a day of the week: ").strip().lower()
+for num in numbers:
 ```
 
-   4. Retrieve the message using the dictionary with a default:
-      - Use the .get() method of the day_messages dictionary to retrieve the message associated with the day entered by the user.
-      - Provide a default value to the .get() method. This default value will be returned if the day is not found as a key in the dictionary. Use something like "Invalid day entered." as the default.
-      - Store the returned message in a variable named message.
+   4. Skip the number 3 using continue:
+      - Inside the for loop, use an if statement to check if num is equal to 3.
+      - If it is, use the continue statement. This will immediately skip the rest of the current iteration of the loop and jump to the next number.
 ```python
-message = day_messages.get(day, "Invalid day entered.")
+if num == 3:
+    continue  # Skip the rest of this iteration
 ```
 
-   5. Use the ternary operator to determine weekend vs. weekday:
-      - Use the ternary operator to determine if the day is a weekend (Saturday or Sunday) or a weekday.
-      - The condition should check if day is present in the tuple ("saturday", "sunday").
-      - If the condition is true, assign the string "Weekend" to the variable day_type. Otherwise, assign "Weekday".
+   5. If the number is 7, exit the loop using break:
+      - After the if statement that checks for 3, use another if statement to check if num is equal to 7.
+      - If it is, use the break statement. This will terminate the entire for loop.
 ```python
-day_type = "Weekend" if day in ("saturday", "sunday") else "Weekday"
+if num == 7:
+    break  # Exit the loop completely
 ```
 
-   6. Use the ternary operator to determine weekend vs. weekday:
-      - Use the print() function to display the message (from the dictionary lookup) and the day_type (determined by the ternary operator).
+   6. Print the current number:
+      - After the if statements, use the print() function to display the current value of num. This print() statement will only be executed if neither the continue nor the break conditions are met.
 ```python
-print(message)
-print("It's a", day_type + "!")
+    print(num)
 ```
 
    7. Complete Code: Combine the steps above to form the complete program.
    8. Run the code: Execute your Python code.
-   9. Observe the output: Test the program with different days of the week (including variations in capitalization and spacing) and invalid day names.
+   9. Observe the output: Verify that the output matches the "Desired Output" shown above.
 
    **Conclusion**
-   This exercise demonstrated two important Python techniques: simulating a switch statement using dictionaries and using the ternary operator for concise conditional expressions. You learned how to use dictionary lookups with default values and how to normalize user input for more robust code.  These techniques are valuable tools for writing cleaner, more efficient, and easier-to-read Python code.
+   This exercise introduced the for loop, a powerful tool for automating repetitive tasks.  You learned how to use the continue statement to skip specific iterations and the break statement to exit a loop early.  These control flow mechanisms provide flexibility and control over loop execution, allowing you to create more sophisticated and efficient programs.  Understanding how break and continue modify loop behavior is crucial for writing effective Python code.
 
 ### **Step 4: Push Changes to GitHub**
 Once you've completed your changes, follow these steps to upload your work to your GitHub repository.
