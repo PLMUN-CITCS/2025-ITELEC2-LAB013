@@ -127,16 +127,16 @@ for num in numbers:
       - Inside the for loop, use an if statement to check if num is equal to 3.
       - If it is, use the continue statement. This will immediately skip the rest of the current iteration of the loop and jump to the next number.
 ```python
-if num == 3:
-    continue  # Skip the rest of this iteration
+    if num == 3:
+        continue  # Skip the rest of this iteration
 ```
 
    5. If the number is 7, exit the loop using break:
       - After the if statement that checks for 3, use another if statement to check if num is equal to 7.
       - If it is, use the break statement. This will terminate the entire for loop.
 ```python
-if num == 7:
-    break  # Exit the loop completely
+    if num == 7:
+        break  # Exit the loop completely
 ```
 
    6. Print the current number:
